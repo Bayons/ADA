@@ -24,7 +24,7 @@ class BusquedaBinaria {
 	}
 
 	public static void main(String[] args) {
-		int tam = 1000000; // incrementando
+		int tam = 1000; // incrementando
 		int[] vector = new int[tam];
 		int h, tmp, valorBuscado;
 		long timeIni, timeEnd, timeSec = 0, timeBin = 0;
@@ -60,4 +60,20 @@ class BusquedaBinaria {
 		System.out.println("Binario: " + (timeBin / REPETICIONES) + " nanosegundos.");
 		System.out.println("Secuencial: " + (timeSec / REPETICIONES) + " nanosegundos.");
 	}
+	/*
+	 * --- TIEMPOS DE BUSQUEDA (ns) ---
+	 * Tamaño				Binario				Secuencial
+	 * 1000000				12783				1413746
+	 * 1000000				7308				1193761
+	 * 100					902					2736
+	 * 100					1290				6329
+	 * 100					1290				3499
+	 * 1000					1368				4416
+	 * 1000					2285				8895
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 }
