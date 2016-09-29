@@ -24,17 +24,17 @@ class BusquedaBinaria {
 	}
 
 	public static void main(String[] args) {
-		int tam = 1000; // incrementando
-		int[] vector = new int[tam];
+		final int TAMANO = 1000; // incrementando
+		final int REPETICIONES = 30;
+		int[] vector = new int[TAMANO];
 		int h, tmp, valorBuscado;
 		long timeIni, timeEnd, timeSec = 0, timeBin = 0;
-		final int REPETICIONES = 30;
 
-		for (int i = 0; i < tam; i++) {
-			vector[i] = (int) (Math.random() * tam);
+		for (int i = 0; i < TAMANO; i++) {
+			vector[i] = (int) (Math.random() * TAMANO);
 		}
 
-		for (int j = 1; j < tam; j++) {
+		for (int j = 1; j < TAMANO; j++) {
 			h = j;
 			while (h > 0 && vector[h] < vector[h - 1]) {
 				tmp = vector[h];
@@ -45,7 +45,7 @@ class BusquedaBinaria {
 		}
 
 		for (int t = 0; t < REPETICIONES; t++) {
-			valorBuscado = (int) (Math.random() * tam); // random
+			valorBuscado = (int) (Math.random() * TAMANO); // random
 
 			timeIni = System.nanoTime();
 			busquedaBinaria(vector, valorBuscado);
@@ -60,20 +60,4 @@ class BusquedaBinaria {
 		System.out.println("Binario: " + (timeBin / REPETICIONES) + " nanosegundos.");
 		System.out.println("Secuencial: " + (timeSec / REPETICIONES) + " nanosegundos.");
 	}
-	/*
-	 * --- TIEMPOS DE BUSQUEDA (ns) ---
-	 * Tamaño				Binario				Secuencial
-	 * 1000000				12783				1413746
-	 * 1000000				7308				1193761
-	 * 100					902					2736
-	 * 100					1290				6329
-	 * 100					1290				3499
-	 * 1000					1368				4416
-	 * 1000					2285				8895
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
 }
