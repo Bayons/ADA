@@ -1,0 +1,21 @@
+SECUENCIAL: medias
+
+TAMAÑO: 10
+Tiempo: 544
+Comparaciones: 6
+
+TAMAÑO: 100
+Tiempo: 1355
+Comparaciones: 69
+
+TAMAÑO: 1000
+Tiempo: 2800
+Comparaciones: 721
+
+TAMAÑO: 10000
+Tiempo: 18525
+Comparaciones: 6760
+
+TAMAÑO: 100000
+Tiempo: 13786
+Comparaciones: 73742

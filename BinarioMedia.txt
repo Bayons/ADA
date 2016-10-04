@@ -1,0 +1,21 @@
+BINARIO: medias
+
+TAMAÑO: 10
+Tiempo: 697
+Comparaciones: 5
+
+TAMAÑO: 100
+Tiempo: 658
+Comparaciones: 11
+
+TAMAÑO: 1000
+Tiempo: 747
+Comparaciones: 18
+
+TAMAÑO: 10000
+Tiempo: 747
+Comparaciones: 23
+
+TAMAÑO: 100000
+Tiempo: 468
+Comparaciones: 30

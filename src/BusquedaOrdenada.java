@@ -2,8 +2,8 @@ import java.io.*;
 
 public class BusquedaOrdenada extends Metodos {
 
-	public static void iterarOrdenado(int TAMANO, BufferedWriter bsec, BufferedWriter bsecM, BufferedWriter bbin,
-			BufferedWriter bbinM) throws IOException {
+	public static void iterarOrdenado(int TAMANO, FileWriter sec, FileWriter secM, FileWriter bin,
+			FileWriter binM) throws IOException {
 		final int REPETICIONES = 30;
 		int contadorBin = 0, contadorSec = 0;
 		int[] vector = new int[TAMANO];
@@ -12,7 +12,12 @@ public class BusquedaOrdenada extends Metodos {
 
 		creaVector(TAMANO, vector);
 		ordenaVector(TAMANO, vector);
-
+		
+		
+		sec.write("\r\n\r\n\r\nTAMAÑO: "+TAMANO+"\r\n");
+		bin.write("\r\n\r\n\r\nTAMAÑO: "+TAMANO+"\r\n");
+		secM.write("\r\nTAMAÑO: "+TAMANO+"\r\n");
+		binM.write("\r\nTAMAÑO: "+TAMANO+"\r\n");
 		for (int t = 0; t < REPETICIONES; t++) {
 			valorBuscado = (int) (Math.random() * TAMANO); // random
 
@@ -23,19 +28,27 @@ public class BusquedaOrdenada extends Metodos {
 			System.out.println("\nREPETICION " + t + "\nBinario:");
 			System.out.println("\tComparaciones: " + busquedaBinaria(vector, valorBuscado));
 			System.out.println("\tTiempo: " + (timeEnd - timeIni));
-
-			bsec.write("\nREPETICION " + t + "\nBinario:");
-			bsec.write("\tComparaciones: " + busquedaBinaria(vector, valorBuscado));
-			bsec.write("\tTiempo: " + (timeEnd - timeIni));
+			bin.write("\r\nREPETICION " + (t+1));
+			bin.write("\tComparaciones: " + busquedaBinaria(vector, valorBuscado));
+			bin.write("\tTiempo: " + (timeEnd - timeIni));
+			
+			
 
 			timeIni = System.nanoTime();
 			contadorSec += busquedaSecuencial(vector, valorBuscado);
 			timeEnd = System.nanoTime();
 			timeSec += (timeEnd - timeIni);
+			sec.write("\r\nREPETICION " + (t+1));
+			sec.write("\tComparaciones: " + busquedaSecuencial(vector, valorBuscado));
+			sec.write("\tTiempo: " + (timeEnd - timeIni));
+			
 			System.out.println("Secuencial:");
 			System.out.println("\tComparaciones: " + busquedaSecuencial(vector, valorBuscado));
 			System.out.println("\tTiempo: " + (timeEnd - timeIni));
 		}
+		secM.write("Tiempo: " + (timeSec / REPETICIONES)+"\r\nComparaciones: " + (contadorSec / REPETICIONES)+"\r\n");
+		binM.write("Tiempo: " + (timeBin / REPETICIONES)+"\r\nComparaciones: " + (contadorBin / REPETICIONES)+"\r\n");
+		
 		System.out.println("\nMEDIA:");
 		System.out.println("Binario:\n\tTiempo: " + (timeBin / REPETICIONES) + " nanosegundos.");
 		System.out.println("\tComparaciones: " + contadorBin / REPETICIONES);
@@ -44,27 +57,30 @@ public class BusquedaOrdenada extends Metodos {
 	}
 
 	public static void main(String args[]) {
-		String sec = "sec.txt", secM = "secMedia.txt", bin = "bin.txt", binM = "binMedia.txt";
-		FileWriter fsec, fsecM, fbin, fbinM;
-
+		FileWriter sec = null,secM = null,bin = null,binM = null;
 		try {
-			fsec = new FileWriter(sec);
-			fsecM = new FileWriter(secM);
-			fbin = new FileWriter(bin);
-			fbinM = new FileWriter(binM);
-
-			BufferedWriter bsec = new BufferedWriter(fsec);
-			BufferedWriter bsecM = new BufferedWriter(fsecM);
-			BufferedWriter bbin = new BufferedWriter(fbin);
-			BufferedWriter bbinM = new BufferedWriter(fbinM);
-
+			sec = new FileWriter("SecuencialTotal.txt");
+			secM = new FileWriter("SecuencialMedia.txt");
+			bin = new FileWriter("BinarioTotal.txt");
+			binM = new FileWriter("BinarioMedia.txt");
+			
+			sec.write("SECUENCIAL: datos experimentales\r\n");
+			bin.write("BINARIO: datos experimentales\r\n");
+			secM.write("SECUENCIAL: medias\r\n");
+			binM.write("BINARIO: medias\r\n");
 			for (int TAMANO = 10; TAMANO < 100001; TAMANO *= 10) {
 				System.out.println("\n---------------------\n    TAMAÑO: " + TAMANO + "\n--------------------- \n");
-				iterarOrdenado(TAMANO, bsec, bsecM, bbin, bbinM);
+				iterarOrdenado(TAMANO, sec, secM, bin, binM);
 			}
+			sec.close();
+			secM.close();
+			bin.close();
+			binM.close();
+			
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+			
 
 	}
 }

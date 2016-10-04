@@ -1,0 +1,172 @@
+BINARIO: datos experimentales
+
+
+
+TAMAÑO: 10
+
+REPETICION 1	Comparaciones: 8	Tiempo: 2281
+REPETICION 2	Comparaciones: 7	Tiempo: 760
+REPETICION 3	Comparaciones: 7	Tiempo: 760
+REPETICION 4	Comparaciones: 6	Tiempo: 761
+REPETICION 5	Comparaciones: 8	Tiempo: 760
+REPETICION 6	Comparaciones: 1	Tiempo: 380
+REPETICION 7	Comparaciones: 8	Tiempo: 760
+REPETICION 8	Comparaciones: 6	Tiempo: 760
+REPETICION 9	Comparaciones: 1	Tiempo: 380
+REPETICION 10	Comparaciones: 8	Tiempo: 760
+REPETICION 11	Comparaciones: 6	Tiempo: 380
+REPETICION 12	Comparaciones: 7	Tiempo: 761
+REPETICION 13	Comparaciones: 1	Tiempo: 761
+REPETICION 14	Comparaciones: 3	Tiempo: 1141
+REPETICION 15	Comparaciones: 3	Tiempo: 381
+REPETICION 16	Comparaciones: 7	Tiempo: 761
+REPETICION 17	Comparaciones: 7	Tiempo: 380
+REPETICION 18	Comparaciones: 7	Tiempo: 760
+REPETICION 19	Comparaciones: 8	Tiempo: 760
+REPETICION 20	Comparaciones: 8	Tiempo: 761
+REPETICION 21	Comparaciones: 6	Tiempo: 380
+REPETICION 22	Comparaciones: 5	Tiempo: 380
+REPETICION 23	Comparaciones: 5	Tiempo: 381
+REPETICION 24	Comparaciones: 1	Tiempo: 380
+REPETICION 25	Comparaciones: 7	Tiempo: 761
+REPETICION 26	Comparaciones: 7	Tiempo: 760
+REPETICION 27	Comparaciones: 7	Tiempo: 760
+REPETICION 28	Comparaciones: 8	Tiempo: 761
+REPETICION 29	Comparaciones: 7	Tiempo: 760
+REPETICION 30	Comparaciones: 7	Tiempo: 380
+
+
+TAMAÑO: 100
+
+REPETICION 1	Comparaciones: 7	Tiempo: 760
+REPETICION 2	Comparaciones: 3	Tiempo: 761
+REPETICION 3	Comparaciones: 14	Tiempo: 1140
+REPETICION 4	Comparaciones: 9	Tiempo: 760
+REPETICION 5	Comparaciones: 14	Tiempo: 760
+REPETICION 6	Comparaciones: 11	Tiempo: 761
+REPETICION 7	Comparaciones: 14	Tiempo: 761
+REPETICION 8	Comparaciones: 14	Tiempo: 761
+REPETICION 9	Comparaciones: 13	Tiempo: 760
+REPETICION 10	Comparaciones: 13	Tiempo: 760
+REPETICION 11	Comparaciones: 13	Tiempo: 380
+REPETICION 12	Comparaciones: 3	Tiempo: 380
+REPETICION 13	Comparaciones: 13	Tiempo: 760
+REPETICION 14	Comparaciones: 14	Tiempo: 760
+REPETICION 15	Comparaciones: 12	Tiempo: 380
+REPETICION 16	Comparaciones: 7	Tiempo: 380
+REPETICION 17	Comparaciones: 13	Tiempo: 380
+REPETICION 18	Comparaciones: 13	Tiempo: 760
+REPETICION 19	Comparaciones: 13	Tiempo: 380
+REPETICION 20	Comparaciones: 13	Tiempo: 760
+REPETICION 21	Comparaciones: 9	Tiempo: 760
+REPETICION 22	Comparaciones: 12	Tiempo: 760
+REPETICION 23	Comparaciones: 14	Tiempo: 380
+REPETICION 24	Comparaciones: 12	Tiempo: 760
+REPETICION 25	Comparaciones: 7	Tiempo: 380
+REPETICION 26	Comparaciones: 14	Tiempo: 761
+REPETICION 27	Comparaciones: 14	Tiempo: 760
+REPETICION 28	Comparaciones: 9	Tiempo: 380
+REPETICION 29	Comparaciones: 13	Tiempo: 760
+REPETICION 30	Comparaciones: 14	Tiempo: 761
+
+
+TAMAÑO: 1000
+
+REPETICION 1	Comparaciones: 19	Tiempo: 1140
+REPETICION 2	Comparaciones: 20	Tiempo: 760
+REPETICION 3	Comparaciones: 19	Tiempo: 1140
+REPETICION 4	Comparaciones: 20	Tiempo: 760
+REPETICION 5	Comparaciones: 17	Tiempo: 761
+REPETICION 6	Comparaciones: 19	Tiempo: 760
+REPETICION 7	Comparaciones: 17	Tiempo: 760
+REPETICION 8	Comparaciones: 17	Tiempo: 760
+REPETICION 9	Comparaciones: 19	Tiempo: 760
+REPETICION 10	Comparaciones: 17	Tiempo: 760
+REPETICION 11	Comparaciones: 19	Tiempo: 761
+REPETICION 12	Comparaciones: 15	Tiempo: 380
+REPETICION 13	Comparaciones: 20	Tiempo: 760
+REPETICION 14	Comparaciones: 20	Tiempo: 761
+REPETICION 15	Comparaciones: 13	Tiempo: 760
+REPETICION 16	Comparaciones: 13	Tiempo: 760
+REPETICION 17	Comparaciones: 20	Tiempo: 760
+REPETICION 18	Comparaciones: 20	Tiempo: 380
+REPETICION 19	Comparaciones: 20	Tiempo: 760
+REPETICION 20	Comparaciones: 20	Tiempo: 760
+REPETICION 21	Comparaciones: 13	Tiempo: 380
+REPETICION 22	Comparaciones: 20	Tiempo: 761
+REPETICION 23	Comparaciones: 19	Tiempo: 760
+REPETICION 24	Comparaciones: 20	Tiempo: 760
+REPETICION 25	Comparaciones: 17	Tiempo: 380
+REPETICION 26	Comparaciones: 20	Tiempo: 1521
+REPETICION 27	Comparaciones: 17	Tiempo: 380
+REPETICION 28	Comparaciones: 17	Tiempo: 760
+REPETICION 29	Comparaciones: 19	Tiempo: 760
+REPETICION 30	Comparaciones: 20	Tiempo: 760
+
+
+TAMAÑO: 10000
+
+REPETICION 1	Comparaciones: 25	Tiempo: 3041
+REPETICION 2	Comparaciones: 21	Tiempo: 761
+REPETICION 3	Comparaciones: 19	Tiempo: 760
+REPETICION 4	Comparaciones: 28	Tiempo: 1141
+REPETICION 5	Comparaciones: 28	Tiempo: 1901
+REPETICION 6	Comparaciones: 23	Tiempo: 1521
+REPETICION 7	Comparaciones: 11	Tiempo: 1140
+REPETICION 8	Comparaciones: 21	Tiempo: 1900
+REPETICION 9	Comparaciones: 23	Tiempo: 1901
+REPETICION 10	Comparaciones: 19	Tiempo: 1140
+REPETICION 11	Comparaciones: 28	Tiempo: 1140
+REPETICION 12	Comparaciones: 19	Tiempo: 380
+REPETICION 13	Comparaciones: 21	Tiempo: 380
+REPETICION 14	Comparaciones: 23	Tiempo: 0
+REPETICION 15	Comparaciones: 21	Tiempo: 380
+REPETICION 16	Comparaciones: 25	Tiempo: 380
+REPETICION 17	Comparaciones: 23	Tiempo: 380
+REPETICION 18	Comparaciones: 28	Tiempo: 380
+REPETICION 19	Comparaciones: 25	Tiempo: 380
+REPETICION 20	Comparaciones: 28	Tiempo: 380
+REPETICION 21	Comparaciones: 26	Tiempo: 0
+REPETICION 22	Comparaciones: 26	Tiempo: 381
+REPETICION 23	Comparaciones: 28	Tiempo: 380
+REPETICION 24	Comparaciones: 23	Tiempo: 380
+REPETICION 25	Comparaciones: 28	Tiempo: 380
+REPETICION 26	Comparaciones: 23	Tiempo: 380
+REPETICION 27	Comparaciones: 26	Tiempo: 380
+REPETICION 28	Comparaciones: 26	Tiempo: 380
+REPETICION 29	Comparaciones: 19	Tiempo: 0
+REPETICION 30	Comparaciones: 28	Tiempo: 380
+
+
+TAMAÑO: 100000
+
+REPETICION 1	Comparaciones: 34	Tiempo: 1900
+REPETICION 2	Comparaciones: 31	Tiempo: 380
+REPETICION 3	Comparaciones: 25	Tiempo: 380
+REPETICION 4	Comparaciones: 32	Tiempo: 380
+REPETICION 5	Comparaciones: 34	Tiempo: 380
+REPETICION 6	Comparaciones: 29	Tiempo: 380
+REPETICION 7	Comparaciones: 31	Tiempo: 380
+REPETICION 8	Comparaciones: 27	Tiempo: 380
+REPETICION 9	Comparaciones: 23	Tiempo: 380
+REPETICION 10	Comparaciones: 34	Tiempo: 380
+REPETICION 11	Comparaciones: 34	Tiempo: 380
+REPETICION 12	Comparaciones: 34	Tiempo: 380
+REPETICION 13	Comparaciones: 29	Tiempo: 1141
+REPETICION 14	Comparaciones: 29	Tiempo: 380
+REPETICION 15	Comparaciones: 33	Tiempo: 381
+REPETICION 16	Comparaciones: 31	Tiempo: 380
+REPETICION 17	Comparaciones: 31	Tiempo: 380
+REPETICION 18	Comparaciones: 34	Tiempo: 380
+REPETICION 19	Comparaciones: 27	Tiempo: 380
+REPETICION 20	Comparaciones: 29	Tiempo: 380
+REPETICION 21	Comparaciones: 23	Tiempo: 380
+REPETICION 22	Comparaciones: 31	Tiempo: 760
+REPETICION 23	Comparaciones: 27	Tiempo: 381
+REPETICION 24	Comparaciones: 34	Tiempo: 380
+REPETICION 25	Comparaciones: 34	Tiempo: 760
+REPETICION 26	Comparaciones: 21	Tiempo: 0
+REPETICION 27	Comparaciones: 34	Tiempo: 380
+REPETICION 28	Comparaciones: 25	Tiempo: 381
+REPETICION 29	Comparaciones: 29	Tiempo: 380
+REPETICION 30	Comparaciones: 33	Tiempo: 380
