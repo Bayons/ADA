@@ -46,17 +46,19 @@ public class Metodos {
 	
 	/*
 	 * Ordena el vector
+	 * @return un contador con el nº de comparaciones al ordenar
 	 */
-	public static void ordenaVector(int TAMANO, int[] vector){
-		int h,tmp;
+	public static int ordenaVector(int TAMANO, int[] vector){
+		int h,tmp,contador=0;
 		for (int j = 1; j < TAMANO; j++) {
 			h = j;
 			while (h > 0 && vector[h] < vector[h - 1]) {
+				contador++;
 				tmp = vector[h];
 				vector[h] = vector[h - 1];
 				vector[h - 1] = tmp;
 				h--;
 			}
-		}
+		}return contador;
 	}
 }
