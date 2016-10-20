@@ -6,7 +6,7 @@ public class Subelementos {
 	private static boolean[] soluciones;
 
 	public static void main(String[] args) {
-		int numero, suma, actual;
+		int numero;
 		Scanner in = new Scanner(System.in);
 		ArrayList<Integer> princ = new ArrayList<Integer>();
 
