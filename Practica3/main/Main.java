@@ -38,7 +38,7 @@ public class Main {
 			}
 
 			mAdy = new boolean[usuarios.size()][usuarios.size()];
-			// mAdy[i][j]-> i sigue a j
+			// mAdy[i][j] -> si i sigue a j, entonces true
 
 			for (int i = 0; i < usuarios.size(); i++) {
 				for (int j = 0; j < usuarios.size(); j++) {
@@ -49,28 +49,7 @@ public class Main {
 				}
 			}
 
-			System.out.println("   A B G C H F D E I J\n  ---------------------");
-			for (int i = 0; i < usuarios.size(); i++) {
-				System.out.print(usuarios.get(i)+"| ");
-				for (int j = 0; j < usuarios.size(); j++) {
-					if (mAdy[i][j]) {
-						System.out.print("X|");
-					} else {
-						System.out.print(" |");
-					}
-				}
-				System.out.println();
-			}
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			imprimeMatriz(mAdy, usuarios);
 			
 			for (int i = 0; i < usuarios.size(); i++) {
 				System.out.println("--> " + usuarios.get(i));
@@ -81,11 +60,10 @@ public class Main {
 			}
 
 			System.out.println("----------------------\n");
-
-			ArrayList<User> nuevo = getUserPorNombre(usuarios, "A").aQuienVe();
-			for (int i = 0; i < nuevo.size(); i++) {
-				System.out.println(nuevo.get(i));
-			}
+			
+			boolean lista[] = new boolean[usuarios.size()];
+			
+			buscaComunidades(mAdy, lista, -1, usuarios);
 
 			br.close();
 			fr.close();
@@ -105,6 +83,55 @@ public class Main {
 				return usuarios.get(i);
 		}
 		return null;
+	}
+
+	public static void buscaComunidades (boolean[][] matriz, boolean[] comunidad, int posicion, ArrayList<User> usuarios){
+		posicion++;
+		if (posicion<comunidad.length){
+			comunidad[posicion]=true;
+			if(isComunidad(matriz, comunidad)){
+				imprimeLista(usuarios, comunidad);
+				buscaComunidades(matriz, comunidad, posicion, usuarios);
+			}
+			comunidad[posicion]=false;
+		}
+	}
+	
+	public static boolean isComunidad (boolean [][] matriz, boolean [] comunidad){
+		for (int i = 0; i < comunidad.length; i++){
+			if (comunidad[i]){
+				for (int j = 0; j < comunidad.length; j++){
+					if (comunidad[j] && !matriz[i][j])
+							return false;	
+				}
+			}
+		}
+		
+		return true;
+	}
+	
+	public static void imprimeMatriz(boolean[][] mAdy, ArrayList<User> usuarios){
+		System.out.println("\n   A B G C H F D E I J\n  ---------------------");
+		for (int i = 0; i < usuarios.size(); i++) {
+			System.out.print(usuarios.get(i) + "| ");
+			for (int j = 0; j < usuarios.size(); j++) {
+				if (mAdy[i][j]) {
+					System.out.print("X|");
+				} else {
+					System.out.print(" |");
+				}
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	public static void imprimeLista(ArrayList<User> usuarios, boolean [] comunidad){
+		for (int i = 0; i < usuarios.size(); i++){
+			if (comunidad[i])
+				System.out.print(usuarios.get(i));
+		}
+		System.out.println();
 	}
 
 }
