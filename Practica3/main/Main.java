@@ -61,9 +61,7 @@ public class Main {
 
 			System.out.println("----------------------\n");
 
-			boolean lista[] = new boolean[usuarios.size()];
-
-			buscaComunidades(mAdy, lista, 0, usuarios);
+			buscaComunidades(usuarios);
 
 			br.close();
 			fr.close();
@@ -84,19 +82,34 @@ public class Main {
 		return null;
 	}
 
-	public static void buscaComunidades(boolean[][] matriz, boolean[] comunidad, int posicion,
-			ArrayList<User> usuarios) {
-		if (posicion < comunidad.length) {
-			comunidad[posicion] = true;
-			if (isComunidad(matriz, comunidad)) {
-				if (cuentaUsuarios(comunidad) >= 3)
-					imprimeLista(usuarios, comunidad);
-				buscaComunidades(matriz, comunidad, posicion + 1, usuarios);
+	public static void buscaComunidades(ArrayList<User> usuarios) {
+		boolean[] hasComunidad = new boolean[usuarios.size()];
+		ArrayList<User> comunidad;
+
+		for (int i = 0; i < usuarios.size(); i++) {
+			if (!hasComunidad[i] && (comunidad = getComunidades(usuarios.get(i))) != null) {
+				System.out.println(comunidad);
+				for (int j = 0; j < comunidad.size(); j++)
+					hasComunidad[usuarios.indexOf(comunidad.get(j))] = true;
 			}
-			comunidad[posicion] = false;
-			posicion++;
-			buscaComunidades(matriz, comunidad, posicion, usuarios);
 		}
+	}
+
+	public static ArrayList<User> getComunidades(User user) {
+		ArrayList<User> comunidad = user.aQuienVe();
+
+		for (int i = 0; i < comunidad.size(); i++) {
+			for (int j = 0; j < comunidad.size(); j++) {
+				if (!comunidad.get(i).puedeLeer(comunidad.get(j))) {
+					comunidad.remove(i);
+					i--;
+					break;
+				}
+			}
+		}
+		if (comunidad.size() >= 3)
+			return comunidad;
+		return null;
 	}
 
 	public static boolean isComunidad(boolean[][] matriz, boolean[] comunidad) {

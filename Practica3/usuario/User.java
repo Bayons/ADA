@@ -25,7 +25,11 @@ public class User {
 	public ArrayList<User> aQuienVe() {
 		ArrayList<User> usuarios = new ArrayList<User>();
 		usuarios = aQuienVe(usuarios);
-//		usuarios.remove(this);
+		
+		if(!usuarios.contains(this)){
+			usuarios.add(this);
+		}
+		//usuarios.remove(this);
 		return usuarios;
 	}
 
