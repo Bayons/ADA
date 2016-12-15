@@ -68,10 +68,6 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		// Un grafo vacio es un grafo
-		// Lee usuarios:
-		// usuarios.add
 	}
 
 	public static User getUserPorNombre(ArrayList<User> usuarios, String nombre) {
@@ -137,9 +133,14 @@ public class Main {
 	}
 
 	public static void imprimeMatriz(boolean[][] mAdy, ArrayList<User> usuarios) {
-		System.out.println("\n   A B G C H F D E I J\n  ---------------------");
-		for (int i = 0; i < usuarios.size(); i++) {
-			System.out.print(usuarios.get(i) + "| ");
+		int i;
+		for (i = 0; i < usuarios.size(); i++)
+			System.out.print(usuarios.get(i).getNombre().charAt(0)+"|");
+		System.out.println();
+		for (i = 0; i < usuarios.size(); i++)
+			System.out.print("--");
+		System.out.println();
+		for (i = 0; i < usuarios.size(); i++) {
 			for (int j = 0; j < usuarios.size(); j++) {
 				if (mAdy[i][j]) {
 					System.out.print("X|");
@@ -147,7 +148,7 @@ public class Main {
 					System.out.print(" |");
 				}
 			}
-			System.out.println();
+			System.out.println(" "+usuarios.get(i));
 		}
 		System.out.println();
 	}

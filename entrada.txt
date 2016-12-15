@@ -1,26 +1,42 @@
-Dani follows Pich
-Dani follows Albe
-Albe follows Pich
-Pich follows Migu
-asdf follows Dani
-Dani follows Mari
-Mari follows Pich
-Pich follows Dani
-Mari follows Osca
-Osca follows Albe
+Dani follows Pichi
+Dani follows Alberto
+Alberto follows Pichi
+Pichi follows Bayons
+Gallego follows Dani
+Dani follows Mario
+Mario follows Pichi
+Pichi follows Dani
+Mario follows Oscar
+Oscar follows Alberto
 
-Migu follows Anta
-Anta follows Migu
+Paredes follows Alberto
+Alberto follows Paredes
+Paredes follows Juan
+Paredes follows Anta
+
+Bayons follows Anta
+Anta follows Bayons
 Anta follows Juan
-Juan follows Migu
+Juan follows Bayons
 
-Esca follows Dani
-Esca follows Pich
-Esca follows Albe
-Esca follows Migu
-Esca follows asdf
-Esca follows Mari
-Esca follows Osca
-Esca follows Anta
-Esca follows Juan
-Esca follows Serg
+Escalope follows Dani
+Escalope follows Pichi
+Escalope follows Alberto
+Escalope follows Bayons
+Escalope follows Gallego
+Escalope follows Mario
+Escalope follows Oscar
+Escalope follows Anta
+Escalope follows Juan
+Escalope follows Sergio
+Escalope follows Paredes
+Escalope follows Escalope
+
+Jony follows Escalope
+Jony follows Sergio
+
+Ivans follows Gallego
+Ivans follows Anta
+Ivans follows Paredes
+
+Blanca follows Blanca

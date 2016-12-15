@@ -13,7 +13,7 @@ public class User {
 	}
 
 	public void sigueA(User user) {
-		if (!siguiendo.contains(user))
+		if (!siguiendo.contains(user) && !user.equals(this))
 			siguiendo.add(user);
 	}
 
@@ -25,11 +25,9 @@ public class User {
 	public ArrayList<User> aQuienVe() {
 		ArrayList<User> usuarios = new ArrayList<User>();
 		usuarios = aQuienVe(usuarios);
-		
-		if(!usuarios.contains(this)){
+
+		if (!usuarios.contains(this))
 			usuarios.add(this);
-		}
-		//usuarios.remove(this);
 		return usuarios;
 	}
 
