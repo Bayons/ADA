@@ -10,8 +10,19 @@ import java.util.Scanner;
 
 import usuario.User;
 
+/**
+ * @author Daniel Paredes Santamaria
+ * @author Miguel Bayon Sanz
+ *
+ */
 public class Main {
 
+	/**
+	 * Metodo principal por el que se lee el fichero especificado por el
+	 * usuario, se crean los usuarios indicados en el fichero de entrada y se
+	 * imprime si el usuario lo indica la matriz de adyacencia (que representa a
+	 * quien ve cada usuario) y los usuarios a los que sigue cada uno
+	 */
 	public static void main(String[] args) {
 		String cadena, fichero;
 		String[] linea;
@@ -91,6 +102,15 @@ public class Main {
 		}
 	}
 
+	/**
+	 * Busca en la lista de usuarios aquel cuyo nnombre coincida, devolviendolo
+	 * 
+	 * @param usuarios
+	 *            ArrayList de User con los usuarios leidos en el fichero
+	 * @param nombre
+	 *            String con el nombre del usuario que estamos buscando
+	 * @return User con el nombre dado o null si no lo ha encontrado
+	 */
 	public static User getUserPorNombre(ArrayList<User> usuarios, String nombre) {
 		for (int i = 0; i < usuarios.size(); i++) {
 			if (usuarios.get(i).getNombre().equals(nombre))
@@ -99,9 +119,18 @@ public class Main {
 		return null;
 	}
 
+	/**
+	 * Comprueba las comunidades existentes en caso de que las haya utilizando
+	 * las listas de usuarios a los que ve cada uno
+	 * 
+	 * @param usuarios
+	 *            ArrayList de User con los usuarios cuyas comunidades se
+	 *            quieren buscar
+	 */
 	public static void buscaComunidades(ArrayList<User> usuarios) {
 		FileWriter fich = null;
 		int j, k;
+		boolean primero;
 		try {
 			fich = new FileWriter("salida_p3_migbayo_danpare.txt");
 
@@ -110,11 +139,17 @@ public class Main {
 
 			for (int i = 0; i < usuarios.size(); i++) {
 				if (!hasComunidad[i] && (comunidad = getComunidades(usuarios.get(i))) != null) {
+					primero = true;
 					fich.write("COMUNIDAD:\r\n");
-					for (k = 0; k < comunidad.size(); k++){
-						fich.write(comunidad.get(k).getNombre()+" ");
+					for (k = 0; k < comunidad.size(); k++) {
+						if (primero) {
+							fich.write(comunidad.get(k) + "");
+							primero = false;
+						} else
+							fich.write(", " + comunidad.get(k));
+						// fich.write(comunidad.get(k).getNombre() + " ");
 					}
-						fich.write("\r\n");
+					fich.write("\r\n");
 					for (j = 0; j < comunidad.size(); j++)
 						hasComunidad[usuarios.indexOf(comunidad.get(j))] = true;
 					fich.write("\r\n");
@@ -126,6 +161,15 @@ public class Main {
 		}
 	}
 
+	/**
+	 * Busca y comprueba que el usuario dado se encuentra en una comunidad,
+	 * comprobando además que sea posible
+	 * 
+	 * @param user
+	 *            User del que se quiere saber si está en una comunidad
+	 * @return ArrayList de User con los usuarios de la comunidad o null en caso
+	 *         de que no haya comunidad
+	 */
 	public static ArrayList<User> getComunidades(User user) {
 		ArrayList<User> comunidad = user.aQuienVe();
 
@@ -143,6 +187,15 @@ public class Main {
 		return null;
 	}
 
+	/**
+	 * Imprime una matriz que representa la gente a la que puede ver cada
+	 * usuario
+	 * 
+	 * @param mAdy
+	 *            boolean[][] que representa a quien puede ver cada usuario
+	 * @param usuarios
+	 *            ArrayList de User con los usuarios
+	 */
 	public static void imprimeMatriz(boolean[][] mAdy, ArrayList<User> usuarios) {
 		int i;
 		for (i = 0; i < usuarios.size(); i++)
