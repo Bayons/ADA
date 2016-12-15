@@ -110,9 +110,11 @@ public class Main {
 
 			for (int i = 0; i < usuarios.size(); i++) {
 				if (!hasComunidad[i] && (comunidad = getComunidades(usuarios.get(i))) != null) {
-					for (k = 0; k < comunidad.size(); k++)
-						fich.write(comunidad.get(k).getNombre()); // me da
-																	// nullpointer
+					fich.write("COMUNIDAD:\r\n");
+					for (k = 0; k < comunidad.size(); k++){
+						fich.write(comunidad.get(k).getNombre()+" ");
+					}
+						fich.write("\r\n");
 					for (j = 0; j < comunidad.size(); j++)
 						hasComunidad[usuarios.indexOf(comunidad.get(j))] = true;
 					fich.write("\r\n");
@@ -141,30 +143,6 @@ public class Main {
 		return null;
 	}
 
-	public static boolean isComunidad(boolean[][] matriz, boolean[] comunidad) {
-		for (int i = 0; i < comunidad.length; i++) {
-			if (comunidad[i]) {
-				for (int j = 0; j < comunidad.length; j++) {
-					if (comunidad[j] && !matriz[i][j])
-						return false;
-				}
-			}
-		}
-
-		return true;
-	}
-
-	public static int cuentaUsuarios(boolean[] lista) {
-		int cont = 0;
-
-		for (int i = 0; i < lista.length; i++) {
-			if (lista[i])
-				cont++;
-		}
-
-		return cont;
-	}
-
 	public static void imprimeMatriz(boolean[][] mAdy, ArrayList<User> usuarios) {
 		int i;
 		for (i = 0; i < usuarios.size(); i++)
@@ -182,14 +160,6 @@ public class Main {
 				}
 			}
 			System.out.println(" " + usuarios.get(i));
-		}
-		System.out.println();
-	}
-
-	public static void imprimeComunidad(ArrayList<User> usuarios, boolean[] comunidad) {
-		for (int i = 0; i < usuarios.size(); i++) {
-			if (comunidad[i])
-				System.out.print(usuarios.get(i));
 		}
 		System.out.println();
 	}
