@@ -13,7 +13,7 @@ import usuario.User;
 /**
  * @author Daniel Paredes Santamaria
  * @author Miguel Bayon Sanz
- *
+ * @version 1.0
  */
 public class Main {
 
@@ -44,7 +44,8 @@ public class Main {
 		} else if (entrada.equals("n")) {
 			consola = false;
 		}
-
+		sc.close();
+		
 		// Creacion de usuarios
 		try {
 			FileReader fr = new FileReader(fichero);

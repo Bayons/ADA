@@ -1,6 +1,6 @@
 COMUNIDAD:
-B G A C 
+B, G, A, C
 
 COMUNIDAD:
-E D I J 
+E, D, I, J
 

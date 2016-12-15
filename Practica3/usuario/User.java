@@ -18,7 +18,9 @@ public class User {
 
 	/**
 	 * Constructor con un parametro
-	 * @param nombre nombre del usuario
+	 * 
+	 * @param nombre
+	 *            nombre del usuario
 	 */
 	public User(String nombre) {
 		this.nombre = nombre;
@@ -27,7 +29,9 @@ public class User {
 
 	/**
 	 * Hace que este usuario siga a user
-	 * @param user usuario
+	 * 
+	 * @param user
+	 *            usuario que es seguido
 	 */
 	public void sigueA(User user) {
 		if (!siguiendo.contains(user) && !user.equals(this))
@@ -36,7 +40,9 @@ public class User {
 
 	/**
 	 * Ve si el usuario puede leer a user
-	 * @param user usuario
+	 * 
+	 * @param user
+	 *            usuario del que puede leer
 	 * @return true si puede leer o false en caso contrario
 	 */
 	public boolean puedeLeer(User user) {
@@ -46,7 +52,8 @@ public class User {
 
 	/**
 	 * Saca una lista de todos los usuarios a los que puede ver este usuario
-	 * @return usuarios ArrayList de usuarios
+	 * 
+	 * @return usuarios ArrayList de usuarios a los que ve
 	 */
 	public ArrayList<User> aQuienVe() {
 		ArrayList<User> usuarios = new ArrayList<User>();
@@ -59,8 +66,10 @@ public class User {
 
 	/**
 	 * Saca una lista de todos los usuarios a los que puede ver este usuario
-	 * @param usuarios ArrayList de usuarios
-	 * @return usuarios ArrayList de usuarios
+	 * 
+	 * @param usuarios
+	 *            ArrayList de usuarios
+	 * @return usuarios ArrayList de usuarios a los que ve
 	 */
 	private ArrayList<User> aQuienVe(ArrayList<User> usuarios) {
 		for (int i = 0; i < siguiendo.size(); i++) {
@@ -74,6 +83,7 @@ public class User {
 
 	/**
 	 * Getter de siguiendo
+	 * 
 	 * @return siguiendo ArrayList de usuarios
 	 */
 	public ArrayList<User> getSiguiendo() {
@@ -82,7 +92,9 @@ public class User {
 
 	/**
 	 * Setter de siguiendo
-	 * @param siguiendo ArrayList de usuarios
+	 * 
+	 * @param siguiendo
+	 *            ArrayList de usuarios
 	 */
 	public void setSiguiendo(ArrayList<User> siguiendo) {
 		this.siguiendo = siguiendo;
@@ -90,6 +102,7 @@ public class User {
 
 	/**
 	 * Getter del nombre
+	 * 
 	 * @return nombre String
 	 */
 	public String getNombre() {
@@ -98,7 +111,9 @@ public class User {
 
 	/**
 	 * Setter del nombre
-	 * @param nombre nombre del usuario
+	 * 
+	 * @param nombre
+	 *            nombre del usuario
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
