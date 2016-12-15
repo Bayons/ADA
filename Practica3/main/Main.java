@@ -1,6 +1,7 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,21 +13,27 @@ import usuario.User;
 public class Main {
 
 	public static void main(String[] args) {
-		String cadena,fichero;
+		String cadena, fichero;
 		String[] linea;
 		ArrayList<User> usuarios = new ArrayList<User>();
 		User user1 = null, user2 = null;
 		boolean[][] mAdy;
-		boolean consola = false ;
-		
+		boolean consola = false;
+		String entrada;
+
 		System.out.println("Introduce el nombre del fichero que deseas cargar");
 		Scanner sc = new Scanner(System.in);
 		fichero = sc.nextLine();
-		
-		System.out.println("¿Quieres la matriz de adyacencia y la lista de quién sigue a quién?(true/false)");
-		sc = new Scanner(System.in);
-		consola = sc.nextBoolean();
-		
+
+		System.out
+				.println("¿Quieres la matriz de adyacencia y la lista de quién sigue a quién? Y/N (Otra entrada = N)");
+		entrada = sc.nextLine().toLowerCase();
+		if (entrada.equals("y")) {
+			consola = true;
+		} else if (entrada.equals("n")) {
+			consola = false;
+		}
+
 		// Creacion de usuarios
 		try {
 			FileReader fr = new FileReader(fichero);
@@ -59,26 +66,28 @@ public class Main {
 						mAdy[i][j] = false;
 				}
 			}
-			if (consola){
+			if (consola) {
 				imprimeMatriz(mAdy, usuarios);
 
 				for (int i = 0; i < usuarios.size(); i++) {
-					System.out.println("El usuario " + usuarios.get(i)+" sigue a --> " );
+					System.out.println("El usuario " + usuarios.get(i) + " sigue a --> ");
 					for (int j = 0; j < usuarios.get(i).getSiguiendo().size(); j++) {
 						System.out.println(usuarios.get(i).getSiguiendo().get(j));
 					}
 					System.out.println();
 				}
-	
+
 				System.out.println("----------------------\n");
 			}
-			
+
 			buscaComunidades(usuarios);
 
 			br.close();
 			fr.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (FileNotFoundException e1) {
+			System.out.println("Archivo no encontrado");
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
 	}
 
@@ -92,22 +101,25 @@ public class Main {
 
 	public static void buscaComunidades(ArrayList<User> usuarios) {
 		FileWriter fich = null;
+		int j, k;
 		try {
-			new FileWriter("salida_p3_migbayo_danpare.txt");
-			
+			fich = new FileWriter("salida_p3_migbayo_danpare.txt");
+
 			boolean[] hasComunidad = new boolean[usuarios.size()];
 			ArrayList<User> comunidad;
-	
+
 			for (int i = 0; i < usuarios.size(); i++) {
 				if (!hasComunidad[i] && (comunidad = getComunidades(usuarios.get(i))) != null) {
-					System.out.println(comunidad.get(i).getNombre()); //simplemente para comprobar
-					fich.write(comunidad.get(i).getNombre()); // me da nullpointer
-					for (int j = 0; j < comunidad.size(); j++)
+					for (k = 0; k < comunidad.size(); k++)
+						fich.write(comunidad.get(k).getNombre()); // me da
+																	// nullpointer
+					for (j = 0; j < comunidad.size(); j++)
 						hasComunidad[usuarios.indexOf(comunidad.get(j))] = true;
+					fich.write("\r\n");
 				}
-			fich.close();
 			}
-		}catch (IOException e){
+			fich.close();
+		} catch (IOException e) {
 			System.out.println(e);
 		}
 	}
@@ -156,7 +168,7 @@ public class Main {
 	public static void imprimeMatriz(boolean[][] mAdy, ArrayList<User> usuarios) {
 		int i;
 		for (i = 0; i < usuarios.size(); i++)
-			System.out.print(usuarios.get(i).getNombre().charAt(0)+"|");
+			System.out.print(usuarios.get(i).getNombre().charAt(0) + "|");
 		System.out.println();
 		for (i = 0; i < usuarios.size(); i++)
 			System.out.print("--");
@@ -169,7 +181,7 @@ public class Main {
 					System.out.print(" |");
 				}
 			}
-			System.out.println(" "+usuarios.get(i));
+			System.out.println(" " + usuarios.get(i));
 		}
 		System.out.println();
 	}
