@@ -2,23 +2,34 @@ package main;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import usuario.User;
 
 public class Main {
 
 	public static void main(String[] args) {
-		String cadena;
+		String cadena,fichero;
 		String[] linea;
 		ArrayList<User> usuarios = new ArrayList<User>();
 		User user1 = null, user2 = null;
 		boolean[][] mAdy;
-
+		boolean consola = false ;
+		
+		System.out.println("Introduce el nombre del fichero que deseas cargar");
+		Scanner sc = new Scanner(System.in);
+		fichero = sc.nextLine();
+		
+		System.out.println("¿Quieres la matriz de adyacencia y la lista de quién sigue a quién?(true/false)");
+		sc = new Scanner(System.in);
+		consola = sc.nextBoolean();
+		
 		// Creacion de usuarios
 		try {
-			FileReader fr = new FileReader("entrada.txt");
+			FileReader fr = new FileReader(fichero);
 			BufferedReader br = new BufferedReader(fr);
 			while ((cadena = br.readLine()) != null) {
 				if (cadena.contains(" follows ")) {
@@ -48,19 +59,20 @@ public class Main {
 						mAdy[i][j] = false;
 				}
 			}
+			if (consola){
+				imprimeMatriz(mAdy, usuarios);
 
-			imprimeMatriz(mAdy, usuarios);
-
-			for (int i = 0; i < usuarios.size(); i++) {
-				System.out.println("--> " + usuarios.get(i));
-				for (int j = 0; j < usuarios.get(i).getSiguiendo().size(); j++) {
-					System.out.println(usuarios.get(i).getSiguiendo().get(j));
+				for (int i = 0; i < usuarios.size(); i++) {
+					System.out.println("El usuario " + usuarios.get(i)+" sigue a --> " );
+					for (int j = 0; j < usuarios.get(i).getSiguiendo().size(); j++) {
+						System.out.println(usuarios.get(i).getSiguiendo().get(j));
+					}
+					System.out.println();
 				}
-				System.out.println();
+	
+				System.out.println("----------------------\n");
 			}
-
-			System.out.println("----------------------\n");
-
+			
 			buscaComunidades(usuarios);
 
 			br.close();
@@ -79,15 +91,24 @@ public class Main {
 	}
 
 	public static void buscaComunidades(ArrayList<User> usuarios) {
-		boolean[] hasComunidad = new boolean[usuarios.size()];
-		ArrayList<User> comunidad;
-
-		for (int i = 0; i < usuarios.size(); i++) {
-			if (!hasComunidad[i] && (comunidad = getComunidades(usuarios.get(i))) != null) {
-				System.out.println(comunidad);
-				for (int j = 0; j < comunidad.size(); j++)
-					hasComunidad[usuarios.indexOf(comunidad.get(j))] = true;
+		FileWriter fich = null;
+		try {
+			new FileWriter("salida_p3_migbayo_danpare.txt");
+			
+			boolean[] hasComunidad = new boolean[usuarios.size()];
+			ArrayList<User> comunidad;
+	
+			for (int i = 0; i < usuarios.size(); i++) {
+				if (!hasComunidad[i] && (comunidad = getComunidades(usuarios.get(i))) != null) {
+					System.out.println(comunidad.get(i).getNombre()); //simplemente para comprobar
+					fich.write(comunidad.get(i).getNombre()); // me da nullpointer
+					for (int j = 0; j < comunidad.size(); j++)
+						hasComunidad[usuarios.indexOf(comunidad.get(j))] = true;
+				}
+			fich.close();
 			}
+		}catch (IOException e){
+			System.out.println(e);
 		}
 	}
 
@@ -153,7 +174,7 @@ public class Main {
 		System.out.println();
 	}
 
-	public static void imprimeLista(ArrayList<User> usuarios, boolean[] comunidad) {
+	public static void imprimeComunidad(ArrayList<User> usuarios, boolean[] comunidad) {
 		for (int i = 0; i < usuarios.size(); i++) {
 			if (comunidad[i])
 				System.out.print(usuarios.get(i));
